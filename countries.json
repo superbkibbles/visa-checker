@@ -1,0 +1,15 @@
+[
+    {
+        "name": "argentina",
+        "allowedVisa": [
+            "brazil"
+        ]
+    },
+    {
+        "name": "brazil",
+        "allowedVisa": [
+            "austria",
+            "argentina"
+        ]
+    }
+]
