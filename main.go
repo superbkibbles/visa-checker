@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"os"
 
-	"./controllers"
 	"github.com/julienschmidt/httprouter"
 	"github.com/rs/cors"
+	"github.com/superbkibbles/visa-checker/controllers"
 	"gopkg.in/mgo.v2"
 )
 

@@ -8,8 +8,8 @@ import (
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 
-	"../models"
 	"github.com/julienschmidt/httprouter"
+	"github.com/superbkibbles/visa-checker/models"
 )
 
 type CountryController struct {
