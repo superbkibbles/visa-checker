@@ -25,7 +25,7 @@ func NewCountryController(s *mgo.Session) *CountryController {
 // get all countries
 func (cc CountryController) GetCountries(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 	cs := []models.Country{}
-	err := cc.session.DB("visa-checker").C("countries").Find(nil).All(&cs)
+	err := cc.session.DB("heroku_69bmrctm").C("countries").Find(nil).All(&cs)
 
 	if err != nil {
 		panic(err)
@@ -38,7 +38,7 @@ func (cc CountryController) GetCountry(w http.ResponseWriter, r *http.Request, p
 	id := p.ByName("id")
 	// search in the query
 	country := models.Country{}
-	c := cc.session.DB("visa-checker").C("countries")
+	c := cc.session.DB("heroku_69bmrctm").C("countries")
 	c.FindId(bson.ObjectIdHex(id)).One(&country)
 
 	json.NewEncoder(w).Encode(country)
@@ -52,7 +52,7 @@ func (cc CountryController) AddCountry(w http.ResponseWriter, r *http.Request, p
 	json.NewDecoder(r.Body).Decode(&c)
 	c.ID = bson.NewObjectId()
 
-	cc.session.DB("visa-checker").C("countries").Insert(c)
+	cc.session.DB("heroku_69bmrctm").C("countries").Insert(c)
 
 	err := json.NewEncoder(w).Encode(c)
 	if err != nil {
@@ -64,7 +64,7 @@ func (cc CountryController) AddCountry(w http.ResponseWriter, r *http.Request, p
 func (cc CountryController) DeleteCountry(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 	id := p.ByName("id")
 
-	c := cc.session.DB("visa-checker").C("countries")
+	c := cc.session.DB("heroku_69bmrctm").C("countries")
 	// delete that county
 	err := c.RemoveId(bson.ObjectIdHex(id))
 	if err != nil {
